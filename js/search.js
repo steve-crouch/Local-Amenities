@@ -49,11 +49,11 @@ var schoolIcon = L.icon({
 });
 
 //Adding tile layer to the Map.
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
 	maxZoom: 18,
-	id: 'soumyasundar.f9f4c7f8',
-	accessToken: 'pk.eyJ1Ijoic291bXlhc3VuZGFyIiwiYSI6ImFmMWMzNTMxOGVkZTVlMGNmYmE4ZGQ5ZWJkZWE3YTU2In0.zipdQb4X9PVTAMVvu4r-6g'
+	id: 'comp3207-map',
+	accessToken: 'pk.eyJ1IjoiY29tcDMyMDctbWFwIiwiYSI6ImNrZzJhcmlzYzAzNmoycG0yc284cml6ZnQifQ.tg1iE1xnqQJbPAE1Lg17xg'
 }).addTo(map);
 
 //Event handler to hide the postcode popover.
