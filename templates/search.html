@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- JQuery UI library reference -  http://jqueryui.com/download/ -->
+<!-- Bootstrap modal reference - http://www.w3schools.com/bootstrap/bootstrap_modal.asp -->
+<!-- Disclaimer text reference - https://www.nibusinessinfo.co.uk/content/sample-website-disclaimer -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Local Amenities Map</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/styles/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/styles/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/css/search.css" type="text/css">
+	
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+	<!-- JQuery UI CSS -->
+	<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.css" type="text/css">
+	<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" type="text/css">
+</head>
+
+<body id="page-top">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Local Amenities Map</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<form class="navbar-form navbar-left" role="search" >
+					<div class="input-group" id="div">
+						<input type="text" class="form-control" placeholder="Postcode or Area-code" id="postcode"  data-toggle="popover" data-placement="bottom" 
+						 data-content="Please enter a valid postcode or area code.">
+					</div>
+					<button type="submit" id ="submitButton" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="navbar-menu" href="/">Back to Home</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" value="{{ user_nickname }}" > Hello {{user_nickname}} !<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="btn btn-primary" href="{{ url|safe }}"><i class="fa fa-user fa-fw"></i> {{ url_text  }} </a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+  <div class = "mapContainer" id="map"></div>
+
+  <div class="checkbox">
+	<p class="text-center">
+		<label class="checkbox-inline">
+			<input type="checkbox" class="checkboxGP" value="1" disabled> <strong>General Practioner</strong>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="2" class="checkboxTrainSt" disabled> <strong>Train Station</strong>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="3" class="checkboxSupermarket" disabled> <strong>Supermarket</strong>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="4" class="checkboxSchool" disabled> <strong>School</strong>
+		</label>
+	</p>
+  </div>
+  <div class="disclaimer">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Disclaimer</button>
+  
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Disclaimer</h4>
+			</div>
+			<div class="modal-body">
+				<p>The information contained in this website is for general information purposes only. 
+				   We endeavour to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, 
+				   suitability or availability with respect to the website or the information. Any reliance you place on such information is therefore strictly at your own risk.</p>
+				<p>The data which is visible to the user are accessed from the application’s database. The application cannot display any data which is not available in its database. 
+				   Every effort is made to keep the website up and running smoothly. However, we are not responsible or liable for, the website being temporarily unavailable due to technical issues beyond our control.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		</div>
+	</div>
+  </div>
+	
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-ui-1.11.4/jquery-ui.js"></script>
+	<script src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+	
+    <!-- Plugin JavaScript -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+	<script src="/js/search.js"></script>
+
+</body>
+</html>
